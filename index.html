@@ -125,6 +125,37 @@
   .reset:hover{color:var(--danger)}
   @media(max-width:880px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}
     .strip{grid-template-columns:repeat(2,1fr)}.rhythm{grid-template-columns:1fr}}
+
+.secbig{margin-top:22px}
+.targets{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tcard{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fcfdff}
+.tcard h3{margin:0 0 8px;font-size:14px}
+.trow{display:flex;align-items:center;gap:6px;margin:8px 0;font-size:13px;flex-wrap:wrap}
+.trow label{color:var(--sub)}
+.trow input{width:64px;padding:5px 7px;border:1px solid var(--line);border-radius:7px;font-size:13px}
+.tbar{height:22px;border-radius:6px;background:#eef0f5;overflow:hidden;margin-top:6px}
+.tbar i{display:block;height:100%;transition:width .3s}
+.gap-pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;font-weight:700}
+.gap-ok{background:#e3f6ea;color:var(--grn)}
+.gap-bad{background:#fdeae6;color:var(--danger)}
+.mk-form{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.mk-form input,.mk-form select{padding:7px 8px;border:1px solid var(--line);border-radius:8px;font-size:13px;width:100%;box-sizing:border-box}
+.mk-form .full{grid-column:1/3}
+.mk-stats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.mk-chip{background:#f3fbf6;border:1px solid #cdeed8;color:var(--grn);border-radius:999px;padding:3px 10px;font-size:12px}
+.mk-list{max-height:340px;overflow:auto}
+.mk{display:flex;gap:10px;padding:10px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:#fff;font-size:13px;align-items:flex-start}
+.mk .body{flex:1}
+.mk .tag{font-size:11px;padding:1px 7px;border-radius:6px;background:var(--soft);color:var(--brand);margin-right:6px}
+.mk .meta{color:var(--sub);font-size:12px;margin-top:3px}
+.chart{width:100%}
+.chart svg{width:100%;height:auto;display:block}
+.plan-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.goal{display:flex;align-items:flex-start;gap:9px;padding:9px 10px;border:1px solid var(--line);border-radius:9px;margin-bottom:7px;background:#fff;font-size:13px;cursor:pointer}
+.goal .box{width:18px;height:18px;border-radius:6px;border:2px solid #c4ccda;flex:none;margin-top:1px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px}
+.goal.ok{background:#f3fbf6;border-color:#cdeed8}
+.goal.ok .box{background:var(--grn);border-color:var(--grn)}
+@media(max-width:880px){.targets,.plan-grid{grid-template-columns:1fr}.mk-form{grid-template-columns:1fr}.mk-form .full{grid-column:auto}}
 </style>
 <meta name="theme-color" content="#2f5bea">
 <meta name="mobile-web-app-capable" content="yes">
@@ -277,6 +308,77 @@
   <div data-page-node-id="cgRGeSFH1TpqDztYVbGYWw" class="note" style="margin-top:18px; background:#eef3ff; border-color:#cdd7f0"><!--pnid:1d0u5W1rIuUEF1SiZtZRbS-->
     🔔 报名提醒：预报名 <b data-page-node-id="gGsgivoOPEbp7raCtnknQA"><!--pnid:waOZWDlZAytBQYwO6HowdJ-->10/9–10/12</b><!--pnid:Gr1qwbXxgg4cz5rys8GFXe-->、正式报名 <b data-page-node-id="jT94kSC3yQH87mWX9ii8nZ"><!--pnid:HkBwXNR1NGX3NIw1ahubAO-->10/15–10/24</b><!--pnid:aeKoZhNcYUAJcU1JZXz2eb-->（研招网 yz.chsi.com.cn，每日9:00–22:00，逾期不可补）。网上确认通常在11月上旬，准考证约考前10天（约12/9起）下载。工程管理（MEM）初试仅考管综+英语二两科，均在 <b data-page-node-id="wELtCPqm4qYAzlUJMs4E56"><!--pnid:wAX6iV7gDFLGBEL7XUfZlW-->12/19</b><!--pnid:gqj7jUvtKPRYUasEsnHxNo--> 当天。
   </div>
+
+<!-- ===== 目标分数拆解 ===== -->
+<div class="card secbig">
+  <h2><span class="ic">🎯</span>目标分数拆解</h2>
+  <div class="targets">
+    <div class="tcard">
+      <h3>199 管理类综合能力（满分 200）</h3>
+      <div class="trow"><label>目标分</label><input id="tgtMeng" type="number" min="0" max="200"><label style="margin-left:8px">当前模考</label><input id="curMeng" type="number" min="0" max="200"></div>
+      <div class="tbar"><i id="barMengCur" style="background:var(--brand)"></i></div>
+      <div id="gapMeng" style="font-size:12px;color:var(--sub);margin-top:6px"></div>
+    </div>
+    <div class="tcard">
+      <h3>204 英语二（满分 100）</h3>
+      <div class="trow"><label>目标分</label><input id="tgtEng" type="number" min="0" max="100"><label style="margin-left:8px">当前模考</label><input id="curEng" type="number" min="0" max="100"></div>
+      <div class="tbar"><i id="barEngCur" style="background:var(--brand2)"></i></div>
+      <div id="gapEng" style="font-size:12px;color:var(--sub);margin-top:6px"></div>
+    </div>
+  </div>
+  <div id="scoreSummary"></div>
+</div>
+
+<!-- ===== 错题本 ===== -->
+<div class="card secbig">
+  <h2><span class="ic">📕</span>错题本</h2>
+  <div class="mk-stats" id="mkStats"></div>
+  <div class="mk-form">
+    <select id="mkCat"><option value="math">数学</option><option value="log">逻辑</option><option value="eng">英语</option><option value="mix">综合</option></select>
+    <input id="mkTag" placeholder="知识点/标签，如：条件充分性">
+    <input id="mkSrc" placeholder="来源，如：真题2019-1">
+    <select id="mkReason"><option value="概念不清">概念不清</option><option value="计算失误">计算失误</option><option value="审题偏差">审题偏差</option><option value="时间不够">时间不够</option><option value="方法不当">方法不当</option></select>
+    <select id="mkDiff"><option value="1">难度 ★</option><option value="2">难度 ★★</option><option value="3">难度 ★★★</option></select>
+    <input id="mkNote" class="full" placeholder="错因 / 正解要点（选填）">
+    <button id="mkAdd" class="btn primary full" style="border:none">+ 添加错题</button>
+  </div>
+  <div class="mk-list" id="mkList"></div>
+</div>
+
+<!-- ===== 进度趋势与统计 ===== -->
+<div class="card secbig">
+  <h2><span class="ic">📈</span>进度趋势与统计</h2>
+  <div class="stats" style="grid-template-columns:repeat(4,1fr)">
+    <div class="st"><div class="n" id="stTotal">0</div><div class="l">累计打卡学时</div></div>
+    <div class="st"><div class="n alt" id="stStreak">0</div><div class="l">最长连续(天)</div></div>
+    <div class="st"><div class="n alt" id="stDays">0</div><div class="l">已学天数</div></div>
+    <div class="st"><div class="n" id="stMk">0</div><div class="l">待复习错题</div></div>
+  </div>
+  <div class="sec-title" style="margin-top:16px">每日已学学时（近 21 天）</div>
+  <div class="chart" id="trendChart"></div>
+  <div class="sec-title" style="margin-top:14px">三阶段达成率（实际 / 计划学时）</div>
+  <div id="phaseChart"></div>
+</div>
+
+<!-- ===== 周 / 阶段计划 ===== -->
+<div class="card secbig">
+  <h2><span class="ic">🗂</span>周 / 阶段计划</h2>
+  <div class="plan-grid">
+    <div>
+      <h3 style="font-size:14px;margin:0 0 8px;color:var(--brand)">本周目标</h3>
+      <div id="weekGoals"></div>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <input id="wgInput" placeholder="新增本周目标…" style="flex:1;padding:7px 8px;border:1px solid var(--line);border-radius:8px;font-size:13px">
+        <button id="wgAdd" class="btn primary" style="border:none">+ 添加</button>
+      </div>
+    </div>
+    <div>
+      <h3 style="font-size:14px;margin:0 0 8px;color:var(--pur)">阶段目标达成率</h3>
+      <div id="phaseGoals"></div>
+    </div>
+  </div>
+</div>
+
 </div>
 
 <script data-page-node-id="Rs4TJMBjFE4YW38CnraF2r" data-pnid-children="UnovqMIKFNIGxldrYgsiI7">
@@ -471,7 +573,7 @@ function renderWeek(){
 // ---------- reset ----------
 document.getElementById('resetBtn').onclick=()=>{
   if(confirm('确定清空所有打卡记录？此操作不可恢复。')){
-    const keep={};Object.keys(store).forEach(k=>{if(k.startsWith('ms_'))keep[k]=store[k];});
+    const keep={};Object.keys(store).forEach(k=>{if(!k.startsWith('ok_'))keep[k]=store[k];});
     store=keep;save(store);refreshAll();
   }
 };
@@ -498,17 +600,110 @@ document.getElementById('importBtn').onclick=()=>document.getElementById('import
 document.getElementById('importFile').onchange=e=>{if(e.target.files[0])importJSON(e.target.files[0]);e.target.value='';};
 document.getElementById('resetBtn2').onclick=()=>{
   if(confirm('确定清空所有打卡记录？此操作不可恢复。')){
-    const keep={};Object.keys(store).forEach(k=>{if(k.startsWith('ms_'))keep[k]=store[k];});
+    const keep={};Object.keys(store).forEach(k=>{if(!k.startsWith('ok_'))keep[k]=store[k];});
     store=keep;save(store);refreshAll();
   }
 };
 
+
+// ============ 新模块 ============
+const PHASES=[{k:'base',n:'阶段一·基础'},{k:'intense',n:'阶段二·强化'},{k:'sprint',n:'阶段三·冲刺'}];
+function doneMinutesOn(dateStr){let s=0;Object.keys(store).forEach(k=>{if(k.indexOf('ok_'+dateStr+'|')===0)s+=(store[k]||0);});return s;}
+
+// ---- 目标分数拆解 ----
+const FULL={meng:200,eng:100};
+function numOr(k,def){const v=store[k];return (v===undefined||v===''||isNaN(Number(v)))?def:Number(v);}
+function setBar(id,v,full){const el=document.getElementById(id);if(el)el.style.width=Math.max(0,Math.min(100,v/full*100))+'%';}
+function renderTargets(){
+  const tgM=numOr('tgtMeng',135),cuM=numOr('curMeng',0),tgE=numOr('tgtEng',75),cuE=numOr('curEng',0);
+  [['tgtMeng',tgM],['curMeng',cuM],['tgtEng',tgE],['curEng',cuE]].forEach(([id,v])=>{const el=document.getElementById(id);if(el&&document.activeElement!==el)el.value=v;});
+  setBar('barMengCur',cuM,FULL.meng);setBar('barEngCur',cuE,FULL.eng);
+  const gm=tgM-cuM,ge=tgE-cuE;
+  document.getElementById('gapMeng').innerHTML='目标 <b>'+tgM+'</b> ｜ 当前 <b>'+cuM+'</b> ｜ <span class="gap-pill '+(gm<=0?'gap-ok':'gap-bad')+'">'+(gm<=0?'已达标':'缺口 '+gm+' 分')+'</span>';
+  document.getElementById('gapEng').innerHTML='目标 <b>'+tgE+'</b> ｜ 当前 <b>'+cuE+'</b> ｜ <span class="gap-pill '+(ge<=0?'gap-ok':'gap-bad')+'">'+(ge<=0?'已达标':'缺口 '+ge+' 分')+'</span>';
+  const ok=(cuM+cuE)>=(tgM+tgE);
+  document.getElementById('scoreSummary').innerHTML='<div class="trow" style="margin-top:4px"><label>总分</label><span>目标 <b>'+(tgM+tgE)+'</b> ｜ 当前模考 <b>'+(cuM+cuE)+'</b> ｜ <span class="gap-pill '+(ok?'gap-ok':'gap-bad')+'">'+(ok?'已达标 +'+(cuM+cuE-tgM-tgE):'缺口 '+(tgM+tgE-cuM-cuE)+' 分')+'</span></span></div><div class="note" style="margin-top:8px">💡 MEM 国家线一般 170+，东北大学复试线常 200+；每次模考估分后回填「当前模考」，即可实时看差距与达标进度。</div>';
+}
+['tgtMeng','curMeng','tgtEng','curEng'].forEach(id=>{const el=document.getElementById(id);if(el)el.onchange=()=>{store[id]=el.value===''?0:Number(el.value);save(store);renderTargets();};});
+
+// ---- 错题本 ----
+function renderMistakes(){
+  let list=store.mk_list||(store.mk_list=[]);
+  const todo=list.filter(m=>!m.done).length;
+  const byR={};list.forEach(m=>byR[m.reason]=(byR[m.reason]||0)+1);
+  let chips='<span class="mk-chip">共 '+list.length+' 题</span><span class="mk-chip">待复习 '+todo+'</span><span class="mk-chip">已掌握 '+(list.length-todo)+'</span>';
+  Object.keys(byR).forEach(r=>chips+='<span class="mk-chip" style="background:#eef3ff;color:var(--brand);border-color:#cdd7f0">'+r+' '+byR[r]+'</span>');
+  document.getElementById('mkStats').innerHTML=chips;
+  const el=document.getElementById('mkList');
+  if(!list.length){el.innerHTML='<div class="note">还没有错题。遇到典型错题点「+ 添加错题」登记，冲刺期按错因集中突破最高效。</div>';return;}
+  el.innerHTML=list.slice().reverse().map(m=>{
+    const cn={math:'数学',log:'逻辑',eng:'英语',mix:'综合'}[m.cat]||m.cat;
+    const diff='★'.repeat(m.diff||1);
+    return '<div class="mk '+(m.done?'ok':'')+'"><div class="body"><div><span class="tag">'+cn+'</span><b>'+(m.tag||'未命名')+'</b> <span class="meta">· '+diff+'</span></div><div class="meta">来源：'+(m.src||'-')+' ｜ 错因：'+m.reason+(m.note?' ｜ '+m.note:'')+'</div></div><button class="btn '+(m.done?'':'primary')+'" style="border:none;white-space:nowrap" onclick="toggleMk(\''+m.id+'\')">'+(m.done?'已掌握':'标记掌握')+'</button><button class="btn" style="border:none;color:var(--danger);white-space:nowrap" onclick="delMk(\''+m.id+'\')">✕</button></div>';
+  }).join('');
+}
+function addMk(){const tag=document.getElementById('mkTag').value.trim(),src=document.getElementById('mkSrc').value.trim();if(!tag&&!src){alert('请填写知识点或来源');return;}const m={id:'m'+Date.now(),cat:document.getElementById('mkCat').value,tag:tag,src:src,reason:document.getElementById('mkReason').value,diff:Number(document.getElementById('mkDiff').value),note:document.getElementById('mkNote').value.trim(),done:false,ts:Date.now()};store.mk_list=store.mk_list||[];store.mk_list.push(m);save(store);document.getElementById('mkTag').value='';document.getElementById('mkSrc').value='';document.getElementById('mkNote').value='';renderMistakes();renderTrend();}
+function toggleMk(id){const x=(store.mk_list||[]).find(m=>m.id===id);if(x){x.done=!x.done;save(store);renderMistakes();renderTrend();}}
+function delMk(id){store.mk_list=(store.mk_list||[]).filter(m=>m.id!==id);save(store);renderMistakes();renderTrend();}
+document.getElementById('mkAdd').onclick=addMk;
+
+// ---- 进度趋势与统计 ----
+function barChartSVG(data){
+  const W=660,H=190,padL=10,padR=10,padB=22,padT=10;
+  const n=data.length;if(!n)return '';
+  const maxV=Math.max(360,...data.map(d=>d.min));
+  const avg=data.reduce((a,d)=>a+d.plan,0)/n;
+  const plotW=W-padL-padR,plotH=H-padT-padB,step=plotW/n,bw=Math.min(18,step*0.6);
+  let s='<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="none" role="img">';
+  s+='<line x1="'+padL+'" y1="'+(H-padB)+'" x2="'+(W-padR)+'" y2="'+(H-padB)+'" stroke="#eef0f5"/>';
+  const yP=padT+plotH-(avg/maxV)*plotH;
+  s+='<line x1="'+padL+'" y1="'+yP+'" x2="'+(W-padR)+'" y2="'+yP+'" stroke="#e8b339" stroke-width="1.5" stroke-dasharray="5 4"/>';
+  s+='<text x="'+(W-padR)+'" y="'+(yP-4)+'" font-size="9" fill="#e8b339" text-anchor="end">日均计划 '+Math.round(avg)+'min</text>';
+  data.forEach((d,i)=>{const cx=padL+step*i+step/2;const h=Math.max(0,(d.min/maxV)*plotH);const col=d.min>=d.plan?'#2bb673':'#2f5bea';
+    s+='<rect x="'+(cx-bw/2)+'" y="'+(H-padB-h)+'" width="'+bw+'" height="'+h+'" rx="2" fill="'+col+'" opacity="0.9"><title>'+md(d.d)+': '+d.min+'min</title></rect>';
+    if(i%3===0||i===n-1)s+='<text x="'+cx+'" y="'+(H-7)+'" font-size="9" fill="#9aa3b2" text-anchor="middle">'+md(d.d)+'</text>';});
+  s+='</svg>';return s;
+}
+function phaseBars(){
+  return PHASES.map(p=>{let plan=0,act=0;for(let d=new Date(PLAN_START);d<=PLAN_END;d=addDays(d,1)){if(phaseOf(d)===p.k){plan+=genTasks(d).reduce((a,t)=>a+t.min,0);act+=doneMinutesOn(ymd(d));}}
+    const rate=plan?Math.round(act/plan*100):0;const col=rate>=100?'#2bb673':(rate>=60?'#0ea5a4':'#7c5cff');
+    return '<div style="margin-bottom:10px"><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:3px"><span><b>'+p.n+'</b></span><span style="color:'+col+'">'+rate+'% · '+Math.round(act/60)+'/'+Math.round(plan/60)+'h</span></div><div class="tbar"><i style="width:'+Math.min(100,rate)+'%;background:'+col+'"></i></div></div>';}).join('');
+}
+function renderTrend(){
+  const end=new Date();end.setHours(0,0,0,0);const e=end>PLAN_END?PLAN_END:end;
+  const data=[];for(let i=20;i>=0;i--){const d=addDays(e,-i);if(d>=PLAN_START&&d<=PLAN_END)data.push({d:d,min:doneMinutesOn(ymd(d)),plan:genTasks(d).reduce((a,t)=>a+t.min,0)});}
+  document.getElementById('trendChart').innerHTML=barChartSVG(data);
+  document.getElementById('phaseChart').innerHTML=phaseBars();
+  let total=0,days=0,cur=0,maxS=0;
+  for(let d=new Date(PLAN_START);d<=PLAN_END;d=addDays(d,1)){const m=doneMinutesOn(ymd(d));if(m>0){total+=m;days++;cur++;if(cur>maxS)maxS=cur;}else cur=0;}
+  document.getElementById('stTotal').textContent=(total/60).toFixed(1);
+  document.getElementById('stStreak').textContent=maxS;
+  document.getElementById('stDays').textContent=days;
+  document.getElementById('stMk').textContent=(store.mk_list||[]).filter(m=>!m.done).length;
+}
+
+// ---- 周 / 阶段计划 ----
+function phaseCell(k){let plan=0,act=0;for(let d=new Date(PLAN_START);d<=PLAN_END;d=addDays(d,1)){if(phaseOf(d)===k){plan+=genTasks(d).reduce((a,t)=>a+t.min,0);act+=doneMinutesOn(ymd(d));}}return {plan:plan,act:act};}
+function renderPlan(){
+  let wg=store.wg||(store.wg=[]);
+  const el=document.getElementById('weekGoals');
+  if(!wg.length)el.innerHTML='<div class="note">添加本周要达成的小目标，如「逻辑论证刷10题」「背完词表 List3-4」。完成后点勾。</div>';
+  else el.innerHTML=wg.map(g=>'<div class="goal '+(g.done?'ok':'')+'" onclick="toggleWg(\''+g.id+'\')"><div class="box">'+(g.done?'✓':'')+'</div><div style="flex:1">'+g.text+'</div><button class="btn" style="border:none;color:var(--danger);padding:0 6px" onclick="event.stopPropagation();delWg(\''+g.id+'\')">✕</button></div>').join('');
+  const pg=store.pg||{};const defs={base:'搭框架：公式/规则吃透，单词过完一轮',intense:'破题型+提速：错题本成型，写作动笔',sprint:'全真模考定稿，调生物钟'};
+  document.getElementById('phaseGoals').innerHTML=PHASES.map(p=>{const c=phaseCell(p.k);const rate=c.plan?Math.round(c.act/c.plan*100):0;const txt=pg[p.k]!=null?pg[p.k]:defs[p.k];const col=rate>=100?'#2bb673':(rate>=60?'#0ea5a4':'#7c5cff');
+    return '<div style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><b>'+p.n+'</b><span style="color:'+col+'">'+rate+'% · '+Math.round(c.act/60)+'/'+Math.round(c.plan/60)+'h</span></div><div class="tbar"><i style="width:'+Math.min(100,rate)+'%;background:'+col+'"></i></div><input class="pgInput" data-k="'+p.k+'" value="'+txt+'" placeholder="阶段目标…" style="width:100%;margin-top:6px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;font-size:13px"></div>';}).join('');
+  document.querySelectorAll('.pgInput').forEach(inp=>inp.onchange=()=>{store.pg=store.pg||{};store.pg[inp.dataset.k]=inp.value;save(store);});
+}
+function addWg(){const t=document.getElementById('wgInput').value.trim();if(!t)return;store.wg=store.wg||[];store.wg.push({id:'w'+Date.now(),text:t,done:false});document.getElementById('wgInput').value='';save(store);renderPlan();}
+function toggleWg(id){const g=(store.wg||[]).find(x=>x.id===id);if(g){g.done=!g.done;save(store);renderPlan();}}
+function delWg(id){store.wg=(store.wg||[]).filter(x=>x.id!==id);save(store);renderPlan();}
+document.getElementById('wgAdd').onclick=addWg;
+
 // unified refresh + init
-function refreshAll(){renderMilestones();renderToday();renderWeek();renderLogged();}
-renderCountdown();refreshAll();
+function refreshAll(){renderMilestones();renderToday();renderWeek();renderLogged();renderTrend();}
+renderCountdown();refreshAll();renderTargets();renderMistakes();renderPlan();
 </script>
 <script>
-/* PWA：注册离线缓存，使添加到主屏后可作独立 App 使用 */
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
     navigator.serviceWorker.register('sw.js').catch(function () {});
