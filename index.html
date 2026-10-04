@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html data-page-node-id="Xv795NPOFqucvYffitb61w" lang="zh-CN">
+<head data-page-node-id="cAjUD487Jsp4T93V5WPPDH">
+<script data-page-node-id="N0Sy8irqgwZaPwQ9SXfYT9" src="/page/page_comm/inject.js"></script>
+<meta data-page-node-id="sFl2C4ftbqnvmGJdCuE7ul" charset="UTF-8">
+<meta data-page-node-id="9b4yR2CFLBCHDuktHD2k4h" content="width=device-width, initial-scale=1.0" name="viewport">
+<title data-page-node-id="XGvAQejrM3m7d11EN8zsui" data-pnid-children="ZyCoUBzjuaA89HLgs8A0h8">东北大学 155601 工程管理 · 非全日制考研学习目标工作台</title>
+<style data-page-node-id="Jt2WCQMtMSoJMQrJQYz7iO" data-pnid-children="vUM7qKlPYkQfXLPhZTS8ne">
+  :root{
+    --bg:#f5f7fb; --card:#ffffff; --ink:#1f2937; --sub:#6b7280; --line:#e5e9f0;
+    --brand:#2f5bea; --brand2:#0ea5a4; --warn:#e8833a; --danger:#e0533d;
+    --grn:#2bb673; --yel:#e8b339; --pur:#7c5cff; --soft:#eef3ff;
+    --shadow:0 1px 3px rgba(16,24,40,.06),0 8px 24px rgba(16,24,40,.06);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1180px;margin:0 auto;padding:20px 18px 60px}
+  /* HERO */
+  .hero{background:linear-gradient(135deg,#2f5bea,#0ea5a4);color:#fff;border-radius:18px;
+    padding:26px 28px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .hero:after{content:"";position:absolute;right:-40px;top:-40px;width:220px;height:220px;
+    background:rgba(255,255,255,.12);border-radius:50%}
+  .hero .tag{display:inline-block;background:rgba(255,255,255,.18);padding:4px 12px;border-radius:999px;
+    font-size:13px;margin-bottom:10px}
+  .hero h1{margin:0 0 6px;font-size:25px;letter-spacing:.5px}
+  .hero .meta{font-size:14px;opacity:.94}
+  .hero .meta b{font-weight:600}
+  .countdown{display:flex;gap:14px;margin-top:18px;flex-wrap:wrap}
+  .cd{background:rgba(255,255,255,.14);border-radius:12px;padding:10px 16px;text-align:center;min-width:96px}
+  .cd .n{font-size:26px;font-weight:700;line-height:1}
+  .cd .l{font-size:12px;opacity:.92;margin-top:4px}
+  /* milestone strip */
+  .strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}
+  .ms{background:var(--card);border-radius:14px;padding:14px 15px;box-shadow:var(--shadow);
+    border:1px solid var(--line);position:relative}
+  .ms .k{font-size:12px;color:var(--sub)}
+  .ms .v{font-size:15px;font-weight:700;margin-top:3px}
+  .ms .d{font-size:12px;color:var(--brand);margin-top:2px}
+  .ms.done{background:linear-gradient(135deg,#eafaf1,#eafaf1);border-color:#bfe9cf}
+  .ms.done .v{color:var(--grn)}
+  .ms .chk{position:absolute;top:12px;right:12px;font-size:18px}
+  /* stat cards */
+  .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:6px 0 18px}
+  .st{background:var(--card);border-radius:14px;padding:16px;box-shadow:var(--shadow);border:1px solid var(--line);text-align:center}
+  .st .n{font-size:28px;font-weight:800;color:var(--brand)}
+  .st .n.alt{color:var(--brand2)}
+  .st .l{font-size:12px;color:var(--sub);margin-top:4px}
+  /* layout */
+  .grid{display:grid;grid-template-columns:1.55fr 1fr;gap:18px;align-items:start}
+  .card{background:var(--card);border-radius:16px;padding:20px;box-shadow:var(--shadow);border:1px solid var(--line)}
+  .card h2{margin:0 0 14px;font-size:17px;display:flex;align-items:center;gap:8px}
+  .card h2 .ic{width:26px;height:26px;border-radius:8px;background:var(--soft);color:var(--brand);
+    display:inline-flex;align-items:center;justify-content:center;font-size:15px}
+  .sec-title{font-size:14px;font-weight:700;color:var(--sub);margin:22px 2px 10px;text-transform:none;
+    border-left:3px solid var(--brand);padding-left:8px}
+  /* subject modules */
+  .subj{margin-bottom:16px}
+  .subj .head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+  .subj .head .nm{font-weight:700;font-size:15px}
+  .subj .head .sc{font-size:13px;color:var(--sub)}
+  .bar{display:flex;height:26px;border-radius:7px;overflow:hidden;background:#f0f2f7}
+  .bar span{display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:600}
+  .legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin-top:9px;font-size:12px;color:var(--sub)}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:middle}
+  /* phase timeline */
+  .phase{border-left:3px solid var(--line);padding:4px 0 16px 18px;position:relative;margin-left:6px}
+  .phase:before{content:"";position:absolute;left:-8px;top:6px;width:13px;height:13px;border-radius:50%;background:#fff;border:3px solid var(--line)}
+  .phase.b:before{border-color:var(--brand)}
+  .phase.i:before{border-color:var(--pur)}
+  .phase.s:before{border-color:var(--danger)}
+  .phase .ph-t{font-weight:700;font-size:14px}
+  .phase .ph-d{font-size:12px;color:var(--sub);margin:1px 0 6px}
+  .phase .ph-g{font-size:13px;background:var(--soft);border-radius:8px;padding:8px 10px;color:#334}
+  .phase .ph-g b{color:var(--brand)}
+  /* weekly rhythm */
+  .rhythm{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .rbox{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fcfdff}
+  .rbox h3{margin:0 0 8px;font-size:14px;color:var(--brand)}
+  .rbox .row{font-size:13px;display:flex;gap:8px;padding:5px 0;border-bottom:1px dashed #eef0f5}
+  .rbox .row:last-child{border-bottom:none}
+  .rbox .row .t{color:var(--sub);min-width:74px}
+  /* today tasks */
+  .today-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .today-head .date{font-size:16px;font-weight:700}
+  .today-head .ph{font-size:12px;color:#fff;background:var(--brand);padding:3px 10px;border-radius:999px}
+  .today-head .ph.i{background:var(--pur)} .today-head .ph.s{background:var(--danger)}
+  .ring-wrap{display:flex;align-items:center;gap:16px;margin:6px 0 14px}
+  .ring{position:relative;width:96px;height:96px;flex:none}
+  .ring .ctr{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .ring .ctr .p{font-size:20px;font-weight:800;color:var(--brand)}
+  .ring .ctr .q{font-size:11px;color:var(--sub)}
+  .ring-info{font-size:13px;color:var(--sub)}
+  .ring-info b{color:var(--ink);font-size:15px}
+  .task{display:flex;align-items:flex-start;gap:11px;padding:11px 12px;border:1px solid var(--line);
+    border-radius:11px;margin-bottom:9px;background:#fff;transition:.15s}
+  .task:hover{border-color:#cdd7f0}
+  .task.ok{background:#f3fbf6;border-color:#cdeed8}
+  .task .box{width:20px;height:20px;border-radius:6px;border:2px solid #c4ccda;flex:none;margin-top:2px;
+    cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;transition:.15s}
+  .task.ok .box{background:var(--grn);border-color:var(--grn)}
+  .task .body{flex:1}
+  .task .tt{font-weight:600;font-size:14px;display:flex;align-items:center;gap:7px}
+  .task .cat{font-size:11px;padding:1px 7px;border-radius:6px;background:var(--soft);color:var(--brand)}
+  .task.ok .cat{background:#e3f6ea;color:var(--grn)}
+  .task .dt{font-size:12.5px;color:var(--sub);margin-top:3px}
+  .task .mn{font-size:11px;color:var(--sub);margin-left:auto;white-space:nowrap}
+  /* week strip */
+  .week{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;margin-top:6px}
+  .wd{background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 6px;text-align:center;cursor:pointer;transition:.15s}
+  .wd:hover{border-color:#cdd7f0}
+  .wd.sel{border-color:var(--brand);box-shadow:0 0 0 2px rgba(47,91,234,.15)}
+  .wd.past{opacity:.55}
+  .wd .d{font-size:12px;font-weight:700}
+  .wd .w{font-size:10px;color:var(--sub)}
+  .wd .pct{height:5px;border-radius:3px;background:#eef0f5;margin-top:6px;overflow:hidden}
+  .wd .pct i{display:block;height:100%;background:var(--grn)}
+  .wd.today .d{color:var(--brand)}
+  .note{font-size:12px;color:var(--sub);margin-top:10px;background:#fff8ef;border:1px solid #f3e2c7;
+    border-radius:10px;padding:10px 12px}
+  .btn{font-size:13px;padding:7px 14px;border-radius:9px;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--ink)}
+  .btn:hover{border-color:var(--brand);color:var(--brand)}
+  .btn.primary{background:var(--brand);color:#fff;border-color:var(--brand)}
+  .reset{float:right;font-size:12px;color:var(--sub);cursor:pointer}
+  .reset:hover{color:var(--danger)}
+  @media(max-width:880px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}
+    .strip{grid-template-columns:repeat(2,1fr)}.rhythm{grid-template-columns:1fr}}
+</style>
+<meta name="theme-color" content="#2f5bea">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="MEM考研">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+</head>
+<body data-page-node-id="J8eDnIKOsOqKPTQ3g3CxrB">
+<div data-page-node-id="H1OAIV3RacGjUr36Eb1Trp" class="wrap">
+
+  <!--pnid:AP8XiA4YXdQ1XkiaiHU2lO--><!-- HERO -->
+  <div data-page-node-id="AYi5fFLUwmaxeH5TJHWZfq" class="hero">
+    <span data-page-node-id="2DFirAXW5rIU9z3JcqOsA6" class="tag"><!--pnid:vGnyu00wwAvh3lTVIhVyYN-->🎯 非全日制研究生备考 · 学习目标工作台</span>
+    <h1 data-page-node-id="s51DMXMgug9Z9SksXJgkKU"><!--pnid:gTbcgQFXJkGsD2Pytul8XO-->东北大学 · 155601 工程管理（非全日制）</h1>
+    <div data-page-node-id="vS07KO9ighVavvAlvH3cJP" class="meta"><!--pnid:8fXohRSeuDwvJRhK8ann7L-->报考科目：<b data-page-node-id="FSjgCDvqMVAu6ah70zMsoG"><!--pnid:PZtTRHt2v5vvVfDdKiskqY-->199 管理类综合能力（200分）</b><!--pnid:wiaWGxC3y3IiCt7GYzSvBX--> ＋ <b data-page-node-id="NKcmoP0KqiRjv0N4aa9xgR"><!--pnid:gAdk5pJcBVg0AGWWoiwagn-->204 英语二（100分）</b><!--pnid:yg2SZvaSnMYeZzRQyhBmwA--> ｜ 考试日期：<b data-page-node-id="X55Cxsk10lUBjEFPFPPB6s"><!--pnid:Tp0Dk8iWn9bWu3VF4ZWOHB-->2026-12-19</b></div>
+    <div data-page-node-id="khxOL1N9NgKZcGqJth3KoF" class="meta"><!--pnid:mJAABvtevPdY2bM73tCV2D-->备考周期：<b data-page-node-id="inm84rbtrQBsLKIeqt01oS"><!--pnid:qRLRuoUi6YO4X083k1m5zj-->2026-10-05 → 2026-12-18（75天）</b><!--pnid:nFRKHXC0WzH3eFVoUV0yCT--> ｜ 模式：工作日碎片+晚间，周末整块</div>
+    <div data-page-node-id="xQ1sVEXwUMWj68MQH6cIY9" class="countdown" id="countdown"></div>
+  </div>
+
+  <!--pnid:TvCc3vvwErLQrOwRea9jw4--><!-- TOOLBAR: backup -->
+  <div data-page-node-id="j8cWQSOlRUxzptfan13fv1" class="strip" style="grid-template-columns:repeat(3,1fr)">
+    <button data-page-node-id="narTqleWQ70tNF4gY6OnFY" class="btn" id="exportBtn" style="border:none; background:#eef3ff; color:var(--brand); font-weight:600"><!--pnid:Wra94OPRh0ekx0qcDFgz8k-->导出 JSON 备份</button>
+    <button data-page-node-id="D4l5F8qW8ZadAzpYKFyN0V" class="btn" id="importBtn" style="border:none; background:#eef3ff; color:var(--brand); font-weight:600"><!--pnid:2xo6SXVjvv6IcNrXi7x8Ax-->导入恢复</button>
+    <button data-page-node-id="pTIwssN2XZIe4NVZ4W0kul" class="btn" id="resetBtn2" style="border:none; background:#fdeeea; color:var(--danger); font-weight:600"><!--pnid:V2kSPtXFT1CMzIdLrmnZa9-->清空打卡数据</button>
+    <input data-page-node-id="QIW7Cdsfgb4r3H6Cxzx5jk" accept="application/json" id="importFile" type="file" style="display:none">
+  </div>
+  <!--pnid:jIus6KnFl7xEjTQbCfBLEw--><!-- MILESTONE STRIP -->
+  <div data-page-node-id="SI6h6FAKIoQ1Npt6xH7s4s" class="sec-title"><!--pnid:3dZn8t4Sg2rpW4hF4qZcTG-->关键节点（务必卡死，点击标记完成）</div>
+  <div data-page-node-id="BIllAQ5zIxyLQvikg1gK7e" class="strip" id="milestones"></div>
+
+  <!--pnid:kHUOI7J9VdEaeeX2lS0T2G--><!-- STATS -->
+  <div data-page-node-id="ZiCm2qlAkYKaggAGrkJlCO" class="stats">
+    <div data-page-node-id="LmaI22WrDpiWDJJE9hcLBU" class="st"><div data-page-node-id="HEQtwRGLkC5IgesLFC4jp9" class="n" id="s-days"><!--pnid:15LHjEFZiBhDoK1TkyKiLJ-->75</div><div data-page-node-id="4bSaw7IuiC6QKoV20qx3oQ" class="l"><!--pnid:Y2gOU4Nd29v6d6w5U1V71S-->总备考天数</div></div>
+    <div data-page-node-id="4IYVQnAlNOYlHBupCTreMW" class="st"><div data-page-node-id="UsHD596CCVYUusHEG4HFtD" class="n alt" id="s-work"><!--pnid:dSOPWJyNY6w7rycVbmhHrr-->55</div><div data-page-node-id="fOzfxQdD1vlsVoAafYnET3" class="l"><!--pnid:BtWTeZurBpVpkBYjQDP6ze-->工作日（晚间学）</div></div>
+    <div data-page-node-id="1ZLFIdpGBJYZ4Mo99s8h3Q" class="st"><div data-page-node-id="ONd0pzgv1YfHIo0Pe4Te37" class="n alt" id="s-we"><!--pnid:SxjiVMAlbiOPu8ZHwjTRlN-->20</div><div data-page-node-id="BiC7IpN6S3ItMjSUhNy6Gz" class="l"><!--pnid:voxff1TusR7GzuOhEIaYXV-->周末日（整块学）</div></div>
+    <div data-page-node-id="uA5rNfvHbsWjfZy5bVQMmV" class="st"><div data-page-node-id="5clL1iA8pDfhcirn0iTfKp" class="n" id="s-hours"><!--pnid:ycDIF4WvfXFMqovB1HhF3N-->248</div><div data-page-node-id="MygJekfSbaawCNwtrhb093" class="l"><!--pnid:SRzM0r1xxerYVwoXudrwWe-->预计可投入学时</div></div>
+    <div data-page-node-id="6wDwXDkyATrUpWjBkWISa3" class="st"><div data-page-node-id="4H7TtigMXaAkCxFa0X4poQ" class="n" id="s-log"><!--pnid:NmdAQv3X1Z3uvaTWigmMuG-->0</div><div data-page-node-id="J7gdGudNIECsYoKvLhfZin" class="l"><!--pnid:Cq5tPaH8yHQB2zvqJ3OYaN-->已打卡学时</div></div>
+  </div>
+
+  <div data-page-node-id="GYkuMaNAwCqbWzYHyHhJOp" class="grid">
+    <!--pnid:QTilmHpnUZHRJEHWHmTQW4--><!-- LEFT: today + week -->
+    <div data-page-node-id="QXIDGdk1Rt4FMN2Lw6T2JV">
+      <div data-page-node-id="gOV4hxMc9qIKCSZr9r2LXf" class="card">
+        <h2 data-page-node-id="dUYZafoljXsGOIBovxCElD"><span data-page-node-id="Vhj8q0FSzUB26vMdWkcnqc" class="ic"><!--pnid:cDWmHONl4Yy6UvpHQj4Z7e-->✅</span><!--pnid:9XDnWqZEGQJ1lRSIyHVi4e-->今日学习任务 <span data-page-node-id="f36hgBDuI9YMGBTxGxkCYh" class="reset" id="resetBtn"><!--pnid:itaVrRxk6vtsX3yvBclH4u-->清空我的打卡</span></h2>
+        <div data-page-node-id="iSv00qLAsBSqN6EbSSyPY4" class="today-head">
+          <div data-page-node-id="Ydo37StqhalcCMl9i8DmzQ" class="date" id="todayDate"><!--pnid:HfHG3XNYgjQurYdp6EIS8g-->—</div>
+          <div data-page-node-id="2J8cpwZXdrgrbsu8KXPMbr" class="ph" id="todayPhase"><!--pnid:934y6KYoiX0PwnwFinB2JM-->—</div>
+        </div>
+        <div data-page-node-id="xAzttquBtZIW7wku5V9Bn2" class="ring-wrap">
+          <div data-page-node-id="PfcNlcpNoQeLOVtNhdsBkn" class="ring">
+            <svg data-page-node-id="OL1UeRGLPS0TErj2gKypTI" height="96" viewBox="0 0 96 96" width="96">
+              <circle data-page-node-id="kzWkmDTh9ZxIAFFOu3wXbg" cx="48" cy="48" fill="none" r="40" stroke="#eef0f5" stroke-width="9"/>
+              <circle data-page-node-id="NDhCZLiHbJYZ08iqPpLZhS" cx="48" cy="48" fill="none" id="ringFg" r="40" stroke="#2bb673" stroke-dasharray="251.3" stroke-dashoffset="251.3" stroke-linecap="round" stroke-width="9" transform="rotate(-90 48 48)"/>
+            </svg>
+            <div data-page-node-id="95VYM5fE9OcQaHwgIpv0Mj" class="ctr"><div data-page-node-id="Kmp78aBJEZJgMIxwc9MIMQ" class="p" id="ringPct"><!--pnid:JRTIkEOa7bzeFFQKkWFNDH-->0%</div><div data-page-node-id="8rmk1Hv9zlALZ9DDTBPdkz" class="q"><!--pnid:m8R36CcXGkY1YXsM2EI0iR-->今日完成</div></div>
+          </div>
+          <div data-page-node-id="uwQbJUhM9xhZwW42fokC5b" class="ring-info"><!--pnid:yYnT6Q4R7yiywlO5wg8h8x-->
+            计划学时：<b data-page-node-id="TeZmlpU0LDT72sytiD5biG" id="planMin"><!--pnid:k8YxpPdl92i9tjyxFRgwBc-->0</b><!--pnid:nKJHOvgtTxwen8tC8D5PDT--> 分钟<br data-page-node-id="lXUcxTgauFinpIMsq2A3nw"><!--pnid:SUe3AIlLwQGo4ou1mzbTuW-->
+            已学：<b data-page-node-id="xA3Uf9ZU16ywiK6Wvf8qOk" id="doneMin"><!--pnid:V0R0KLDXqyyUDIgXNRD8Da-->0</b><!--pnid:p9XOm7jUhYMde3bv0QytbT--> 分钟<br data-page-node-id="gSfxVH6WRs4XDS5E4cX6vb">
+            <span data-page-node-id="3Wgn2VdDfKWNw5YFIB4cOV" id="streakTxt" style="color:var(--brand)"></span>
+          </div>
+        </div>
+        <div data-page-node-id="ZSYIaYnvmmYeHg3lBAmP0j" id="taskList"></div>
+        <div data-page-node-id="Bj1pjImmL4kWr7AJKgfxSy" class="note" id="todayNote"></div>
+
+        <div data-page-node-id="q44AJMIjU0mGyf1rnLO0v4" class="sec-title" style="margin-top:18px"><!--pnid:PCsN8XmUIGUqI3UyUTXhWY-->🗓 本周视图（点击日期切换）</div>
+        <div data-page-node-id="VJe2nCFgub4gx8fjvhLgl8" class="week" id="weekStrip"></div>
+      </div>
+    </div>
+
+    <!--pnid:PCs6pUkk8DpbpCKCldqPmO--><!-- RIGHT: subjects + phases + rhythm -->
+    <div data-page-node-id="vXwTl2d5XzKuHOCs9FNgOE">
+      <div data-page-node-id="5TAfpn5Mg22ThFij0E4gAs" class="card">
+        <h2 data-page-node-id="z4uBsgYL1Y7ikmDQ7D2JGg"><span data-page-node-id="rTcj5Yh1X5icpjqyUWBWpQ" class="ic"><!--pnid:AehtTP0kebEHU0YJKEIt0w-->📚</span><!--pnid:0KoJ6KBSF3ceOc7awe6F7X-->科目与分值结构</h2>
+        <div data-page-node-id="sJdNHyMFnztOIqhKMx43ek" class="subj">
+          <div data-page-node-id="YLG46VR61DX1W7v1bviNGD" class="head"><span data-page-node-id="yJkPtYEKeXS0SQC8l79JLk" class="nm"><!--pnid:E4vQowIxHAZAHnVr91pBYa-->199 管理类综合能力</span><span data-page-node-id="PgXL46qSKEvRmNv2DccRTk" class="sc"><!--pnid:I4dh7hlGxRghXOBnLoUE0R-->满分 200 ｜ 3小时</span></div>
+          <div data-page-node-id="iRxNahjheyEPrOwL8VmM6e" class="bar">
+            <span data-page-node-id="vaZxomfKPLzza9e3AdAj3B" style="background:#2f5bea; flex:37.5%"><!--pnid:f73xuMqhIYuv7vbydsNJP0-->数学75</span>
+            <span data-page-node-id="oqClOFocrBeG9oVs1znvhB" style="background:#7c5cff; flex:30%"><!--pnid:je5AL7eQdCEZZvnoYS53vM-->逻辑60</span>
+            <span data-page-node-id="CGjaHKSfJt6VGN7DIgHaCy" style="background:#0ea5a4; flex:32.5%"><!--pnid:HtZhvouyaSSY9TDGNpva8t-->写作65</span>
+          </div>
+          <div data-page-node-id="CWpZL5pxZLmqdXOKMVksE5" class="legend">
+            <span data-page-node-id="be8hbQ8EoNePbYoBdu7ERU"><i data-page-node-id="KQqGQZpxDGCwm9Lr07gbCM" style="background:#2f5bea"></i><!--pnid:ytMFmgR1nj2rjAUNbK8K3V-->数学·问题求解+条件充分性(25题)</span>
+            <span data-page-node-id="oXdYKj5QwVMGPWpI7dQ4Il"><i data-page-node-id="H4DHhAaXVYUm9YOOpZF2hP" style="background:#7c5cff"></i><!--pnid:RW5rpcdz2pMoBC7IiwnY5a-->逻辑·形式/论证/综合(30题)</span>
+            <span data-page-node-id="3hVnq2uWafcOlCx5V3yQCj"><i data-page-node-id="XAoavdEZoA0EnoyVZhAAuv" style="background:#0ea5a4"></i><!--pnid:MZaJTmjn1GsaCYgOLPOBVH-->写作·论证有效性+论说文</span>
+          </div>
+        </div>
+        <div data-page-node-id="Oj25nROuh2Wfb10rhvwujW" class="subj">
+          <div data-page-node-id="OHzbWEpDmY1TxdDnsNxmKm" class="head"><span data-page-node-id="GDE9nuBaY7kDrMazIDeFx7" class="nm"><!--pnid:EHLemP6hPfejS3uxC1uuYI-->204 英语二</span><span data-page-node-id="10RNpRlPzI830Trnwov2JO" class="sc"><!--pnid:JJYtLW7HUoqpeIrj6UCQl4-->满分 100 ｜ 3小时</span></div>
+          <div data-page-node-id="Atz8tPJLv8yi4SdInmYs8e" class="bar">
+            <span data-page-node-id="p2Sf8pqfu1Wi7NdqbjUfKj" style="background:#e8b339; flex:10%"><!--pnid:H6gNAKmJve1axFDUs4R4yv-->完形10</span>
+            <span data-page-node-id="kOOdw8n3QIaazvoaXshTob" style="background:#e8833a; flex:50%"><!--pnid:J8LKCAZmHPw3ZynhFf3c9s-->阅读50</span>
+            <span data-page-node-id="q7J4rZCDCMYLzl16ATKS0D" style="background:#2bb673; flex:15%"><!--pnid:kedGkxzyfN16xFscsVjV5i-->翻译15</span>
+            <span data-page-node-id="EuHqmkwwgrFEsBSVVs7wrx" style="background:#2f5bea; flex:25%"><!--pnid:Do9zxqcqCrehWJR2ZM0kHV-->写作25</span>
+          </div>
+          <div data-page-node-id="e4l9b17iQw1w97aqVBGQhB" class="legend">
+            <span data-page-node-id="e97xA0EdpIBk8EOu3Cg5FU"><i data-page-node-id="6CUohPvELRFuCXiUHyjfJ8" style="background:#e8b339"></i><!--pnid:jcNaaVjG26V1tiBLYcONE4-->完形20题</span>
+            <span data-page-node-id="oQN9tVrUdffXiJilqXzoAN"><i data-page-node-id="q2F4NCPTfUbq98MSaxIi7p" style="background:#e8833a"></i><!--pnid:PcuUkL61PKig11pjTCh83P-->阅读A+B(50分·重中之重)</span>
+            <span data-page-node-id="d0r334nkdXlwY6YwWjbwdf"><i data-page-node-id="AG0id2sr887Nvu2GPWRQto" style="background:#2bb673"></i><!--pnid:ZK4PNWUG59RrUKeIdIq2q3-->英译中150词</span>
+            <span data-page-node-id="dceNEwH6W3tvsi7jty1klC"><i data-page-node-id="snzGmvQuGgXODnIMmCUt6n" style="background:#2f5bea"></i><!--pnid:EGPXqZPWPBGSB2tuQNLmRv-->小作文+大作文</span>
+          </div>
+        </div>
+        <div data-page-node-id="THt2KjRDPLMP17TANy1p66" class="note"><!--pnid:Q7PsYnIkGzruoFdhvMeSVZ-->💡 时间分配建议（管综3h）：数学≤60min、逻辑≤50min、写作≥60min，留10min填涂。英语阅读占半壁江山，是投入产出比最高的模块。</div>
+      </div>
+
+      <div data-page-node-id="LPHbebuIux4crcHmaDpG82" class="card" style="margin-top:18px">
+        <h2 data-page-node-id="N0gEnswybfkpYfrGdqQtGh"><span data-page-node-id="2iDl1iCs6HPSkvm2Mv3frP" class="ic"><!--pnid:Zu5lz4OCOIcqY4J9faR17q-->🧭</span><!--pnid:inAIzyFfrQBE99uuL0neJB-->三阶段作战路线</h2>
+        <div data-page-node-id="xeajNb3QmuB1QiDwiHmeaJ" class="phase b">
+          <div data-page-node-id="ey0dqBSF480g2JhFMeJ6tu" class="ph-t"><!--pnid:OSZEm6PUiNI5ucZMnxKRCq-->阶段一 · 基础夯实</div>
+          <div data-page-node-id="MJUmjNlIadBvhd4dobPgfq" class="ph-d"><!--pnid:uFP6hB13K54qTOoiQqhqjI-->10/05–10/31 ｜ 27天（20工作日+7周末）</div>
+          <div data-page-node-id="STQDfqcO7qd0JY2NW23zXE" class="ph-g"><!--pnid:jRdTJyNMpUV7IB9qP9t2K6-->目标：<b data-page-node-id="osC9VFoYg5SU2FBdcil8T4"><!--pnid:K6QAaD3ZHXjoAsjsiIxZ3u-->搭框架</b><!--pnid:ezmYQQ0InhaE0LTYsw8FRy-->。英语核心词过完一轮＋长难句；数学12大模块公式/题型系统过；逻辑形式逻辑入门。重理解、轻速度。</div>
+        </div>
+        <div data-page-node-id="cu1JqWeWnY8fXEBe7bT2ok" class="phase i">
+          <div data-page-node-id="vJGqKgD9aHihWUHc3bu4lZ" class="ph-t"><!--pnid:N7zqZ74M8aR9Ut2ohkJFDV-->阶段二 · 强化刷题</div>
+          <div data-page-node-id="IXRbKQY0SWb0ZKNu2nbqat" class="ph-d"><!--pnid:taxo3ZqRBGxSNLZBoYwJv2-->11/01–11/30 ｜ 30天（21工作日+9周末）</div>
+          <div data-page-node-id="VyD27X4h1pVhnB9QTnjifn" class="ph-g"><!--pnid:kqVbL4Ihdeao4hthlX2YNs-->目标：<b data-page-node-id="xcZPUiLbDzzI4QInDKUMS3"><!--pnid:GFVBlFTCK50gHrV0pWrM9G-->破题型+提速</b><!--pnid:WC5VHJRbdKHpD9rrbRoGtF-->。数学分题型刷+条件充分性专项+错题本；逻辑论证/综合推理提速；英语阅读精练、翻译入门、小作文模板；写作每周动笔1篇。</div>
+        </div>
+        <div data-page-node-id="IJXuNBWObsoifzzzChWrPA" class="phase s">
+          <div data-page-node-id="oJFDEj3Zi7m8tJpV1qkNhq" class="ph-t"><!--pnid:SfQWvq4iOau4e8JnEk34bL-->阶段三 · 冲刺模考</div>
+          <div data-page-node-id="davC7DtKamVUPfD7h2162W" class="ph-d"><!--pnid:pqLQRmVYqTPAvkKmk1x8YJ-->12/01–12/18 ｜ 18天（14工作日+4周末）</div>
+          <div data-page-node-id="Fo4ya4nKF5kmXACSqDYnsZ" class="ph-g"><!--pnid:9NZu5vkbF9hZEGEU1WOiKG-->目标：<b data-page-node-id="GBW5nPtxtbfohtnRlwPyFQ"><!--pnid:MCixsPtKxOlhR7grFLYi5N-->全真模拟+定稿</b><!--pnid:M6c5gcSel65UN7UyEcbQ64-->。管综/英语每周各2套真题（严格3h计时）；写作模板定稿；12/19前停笔养精、调生物钟。</div>
+        </div>
+      </div>
+
+      <div data-page-node-id="ZiZAo2btBJwMIbmZWqvSWA" class="card" style="margin-top:18px">
+        <h2 data-page-node-id="jyRTZGX6leIsTheoEfsPEE"><span data-page-node-id="2g8cBI4vFhyosDuFQ56OX8" class="ic"><!--pnid:R9AxSoi1BKcajOwOgzraO4-->⏰</span><!--pnid:l4HkT6SJFeUk51q34O4t3c-->每周节奏模板</h2>
+        <div data-page-node-id="DF0LRhpZ1Iqtf8undtuNKE" class="rhythm">
+          <div data-page-node-id="UgDCgLaJS8tyRdROZAtR4s" class="rbox">
+            <h3 data-page-node-id="8R4M0OTKMzy38JwN8tMMTM"><!--pnid:eYbener5Cz5N7YsmUxen1O-->工作日（周一~周五）</h3>
+            <div data-page-node-id="h6ehWuB3ifQUypfxC3i5us" class="row"><span data-page-node-id="awv8ofQCLNcu03LBJuAW2K" class="t"><!--pnid:vE4pLLji59q7E3dh0rf1af-->碎片时间</span><span data-page-node-id="7DXPfTtutCNuDsLSNEnway"><!--pnid:VlRghrVrNzB00Vk6YJvsvM-->背单词 20 个（通勤/午休，约20min）</span></div>
+            <div data-page-node-id="Iqf29toTzXyNTQVkdEING9" class="row"><span data-page-node-id="iyUueW28IzekEKwhxIoMAJ" class="t"><!--pnid:IYoxtAhNgEXZ3Y13rrWgSP-->晚间 19:30</span><span data-page-node-id="fnskIduIC5rwxpNULq0sqc"><!--pnid:O2VEfTqynvb1aA89sWS96x-->专题学习 2h（数学/逻辑/英语轮换）</span></div>
+            <div data-page-node-id="AbWlsE9aEhIBLJMqPtuqEf" class="row"><span data-page-node-id="fyW7fyBVe7QaLbVpV9eZmv" class="t"><!--pnid:4BK8okWzjEjODhS6d4scdZ-->轮换</span><span data-page-node-id="dDARhkl5ageP9PkPyXet7o"><!--pnid:fPblKowcmvLhJN1oGKY8KS-->一数学·二逻辑·三英语·四数学·五逻辑</span></div>
+          </div>
+          <div data-page-node-id="Mtpj7GCucI20z4TFgbjPhv" class="rbox">
+            <h3 data-page-node-id="qDDwt3s0rXm5Ep6QphLEsh"><!--pnid:GZcsDyTQZ4y4CSuB9Ayl5V-->周末（周六~周日）</h3>
+            <div data-page-node-id="laLnGGBlYF2ywWbzhPK0Pj" class="row"><span data-page-node-id="nmI45Cvb1QdLAB2g7tXABl" class="t"><!--pnid:u57LdNK9y7oxYa47EJF1qj-->周六上午</span><span data-page-node-id="GnRJVJGTJzt4crFAmyR26G"><!--pnid:6VhEtXhpLYXcg04qBH0KeG-->数学专题/套题 3h</span></div>
+            <div data-page-node-id="BtrJ2AdDBMiBnm3aegZxmV" class="row"><span data-page-node-id="xTV65e50nW2iZ29JAaIBoo" class="t"><!--pnid:wtLLOxJJD15AdKWOfX2zKg-->周六下午</span><span data-page-node-id="zhzOcFCwd2cgnERKqFeaDb"><!--pnid:EaYY6xP0Aq5ZElBafWgyDU-->英语阅读+翻译 3h</span></div>
+            <div data-page-node-id="GO7TrJJ4Qogjq5p7BMPcjp" class="row"><span data-page-node-id="kx3gQqIEotZBSVzsHtJkXf" class="t"><!--pnid:3jXXiOrJduyfXoBoabk8rm-->周日上午</span><span data-page-node-id="lDBKnGMx3U9fFl1GYmzcsO"><!--pnid:BkyQ2aA81sHMJkVC80OrsG-->英语写作+阅读 3h</span></div>
+            <div data-page-node-id="RmjUAOSStRJWUMPq9RQkaE" class="row"><span data-page-node-id="GINCUEadgu0w1ZNVfgo6XH" class="t"><!--pnid:SjocBbaZr0kccTOZLzcyey-->周日下午</span><span data-page-node-id="skKydTcmzTrwP7hrU1fFuj"><!--pnid:NNzNTNx6pktSNWTP6mme6u-->管综综合模拟/全科复盘 3h</span></div>
+          </div>
+        </div>
+        <div data-page-node-id="NMffeDL1PjzFwbK0DyFo2P" class="note"><!--pnid:MnLDWSxKOJVRflPqjWyw62-->📌   工作日保证"碎片背词不断线 + 晚间2h专题"；周末用整块时间做套题与写作，这是提分主战场。</div>
+      </div>
+    </div>
+  </div>
+
+  <div data-page-node-id="cgRGeSFH1TpqDztYVbGYWw" class="note" style="margin-top:18px; background:#eef3ff; border-color:#cdd7f0"><!--pnid:1d0u5W1rIuUEF1SiZtZRbS-->
+    🔔 报名提醒：预报名 <b data-page-node-id="gGsgivoOPEbp7raCtnknQA"><!--pnid:waOZWDlZAytBQYwO6HowdJ-->10/9–10/12</b><!--pnid:Gr1qwbXxgg4cz5rys8GFXe-->、正式报名 <b data-page-node-id="jT94kSC3yQH87mWX9ii8nZ"><!--pnid:HkBwXNR1NGX3NIw1ahubAO-->10/15–10/24</b><!--pnid:aeKoZhNcYUAJcU1JZXz2eb-->（研招网 yz.chsi.com.cn，每日9:00–22:00，逾期不可补）。网上确认通常在11月上旬，准考证约考前10天（约12/9起）下载。工程管理（MEM）初试仅考管综+英语二两科，均在 <b data-page-node-id="wELtCPqm4qYAzlUJMs4E56"><!--pnid:wAX6iV7gDFLGBEL7XUfZlW-->12/19</b><!--pnid:gqj7jUvtKPRYUasEsnHxNo--> 当天。
+  </div>
+</div>
+
+<script data-page-node-id="Rs4TJMBjFE4YW38CnraF2r" data-pnid-children="UnovqMIKFNIGxldrYgsiI7">
+const KEY='neu_meng_study_v1';
+const PLAN_START=new Date(2026,9,5), PLAN_END=new Date(2026,11,18), EXAM=new Date(2026,11,19);
+const MILE=[
+  {id:'pre', k:'预报名', v:'研招网', d:'10/9 – 10/12', s:new Date(2026,9,9), e:new Date(2026,9,12)},
+  {id:'off', k:'正式报名', v:'研招网', d:'10/15 – 10/24', s:new Date(2026,9,15), e:new Date(2026,9,24)},
+  {id:'cfm', k:'网上确认', v:'省级考试院', d:'约 11月上旬', s:new Date(2026,10,5), e:new Date(2026,10,12)},
+  {id:'admit',k:'准考证下载', v:'研招网', d:'约 12/9 起', s:new Date(2026,11,9), e:new Date(2026,11,18)},
+];
+const WD=['周日','周一','周二','周三','周四','周五','周六'];
+
+// ---------- storage ----------
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return{}}}
+function save(o){localStorage.setItem(KEY,JSON.stringify(o))}
+let store=load();
+
+// ---------- date helpers ----------
+function ymd(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function md(d){return (d.getMonth()+1)+'/'+d.getDate()}
+function addDays(d,n){const x=new Date(d);x.setDate(x.getDate()+n);return x}
+function clampPlan(d){if(d<PLAN_START)return PLAN_START;if(d>PLAN_END)return PLAN_END;return d}
+function phaseOf(d){
+  const m=d.getMonth(),day=d.getDate();
+  if(m===9&&day>=5)return 'base';
+  if(m===10)return 'intense';
+  if(m===11&&day<=18)return 'sprint';
+  return null;
+}
+function phaseName(p){return p==='base'?'阶段一·基础':p==='intense'?'阶段二·强化':'阶段三·冲刺'}
+function weekIdx(d){return Math.floor((d-PLAN_START)/6048e5)} // days/7
+
+// ---------- topic pools ----------
+const TP={
+  math:{base:['实数与运算','代数式与因式分解','函数与方程','不等式','数列','平面几何','解析几何','立体几何','排列组合','概率初步','数据描述','应用题'],
+        intense:['应用题专项','几何综合','数列与函数','排列组合概率','条件充分性判断','易错点突破','模块真题刷'],
+        sprint:['全真套题训练','时间分配演练','错题重做与保温']},
+  log:{base:['概念与命题','联言/选言推理','假言推理规则','负命题与等价','复合推理链'],
+       intense:['论证逻辑·削弱加强','假设与结论','综合推理','提速训练','真题模块刷'],
+       sprint:['套题逻辑模块','综合推理提速','错题重做']},
+  eng:{base:['核心词List(按单元)','长难句拆解','阅读入门精读','词根词缀'],
+       intense:['阅读Part A精练','阅读Part B新题型','翻译入门','小作文模板'],
+       sprint:['阅读套题','大作文模板','写作定稿','全真套题']}
+};
+function topic(cat,p,seed){
+  const arr=TP[cat][p];return arr[((seed%arr.length)+arr.length)%arr.length];
+}
+
+// ---------- task generator ----------
+function genTasks(d){
+  const p=phaseOf(d);if(!p)return[];
+  const wi=weekIdx(d);const tasks=[];
+  if(d.getDay()===0||d.getDay()===6){ // weekend
+    if(d.getDay()===6){
+      tasks.push({id:'sat-am',cat:'math',title:'数学专题 / 套题',detail:topic('math',p,wi),min:180});
+      tasks.push({id:'sat-pm',cat:'eng',title:'英语阅读 + 翻译',detail:topic('eng',p,wi)+'（精读2篇+翻译1段）',min:180});
+    }else{
+      tasks.push({id:'sun-am',cat:'eng',title:'英语写作 + 阅读',detail:topic('eng',p,wi)+(p==='base'?'（读写积累）':'（动笔+模板）'),min:180});
+      tasks.push({id:'sun-pm',cat:'mix',title:'管综综合 / 全科复盘',detail:(p==='base'?'本周错题整理+薄弱模块回看':p==='intense'?'限时套题+写作1篇':'全真模考（严格3h）'),min:180});
+    }
+  }else{ // workday
+    const wd=d.getDay();const map={1:'math',2:'log',3:'eng',4:'math',5:'log'};
+    const cat=map[wd];
+    tasks.push({id:'eve-'+wd,cat,title:({math:'数学',log:'逻辑',eng:'英语'})[cat]+'晚间专项',
+      detail:topic(cat,p,wi)+(cat==='eng'?'（阅读精读/长难句）':''),min:120});
+    tasks.push({id:'words',cat:'eng',title:'碎片背单词',detail:'核心词 20 个（通勤/午休完成）',min:20});
+  }
+  return tasks;
+}
+const CATNAME={math:'数学',log:'逻辑',eng:'英语',mix:'综合'};
+
+// ---------- render: countdown ----------
+function renderCountdown(){
+  const now=new Date();now.setHours(0,0,0,0);
+  const toExam=Math.round((EXAM-now)/864e5);
+  const toStart=Math.round((PLAN_START-now)/864e5);
+  const el=document.getElementById('countdown');
+  el.innerHTML=
+    `<div class="cd"><div class="n">${toExam>=0?toExam:0}</div><div class="l">距考试(12/19)</div></div>`+
+    `<div class="cd"><div class="n">${toStart>0?toStart:0}</div><div class="l">距启动(10/5)</div></div>`+
+    `<div class="cd"><div class="n">${75}</div><div class="l">总备考天数</div></div>`+
+    `<div class="cd"><div class="n">${toExam>=0?'12/19':''}</div><div class="l">管综+英语二</div></div>`;
+}
+
+// ---------- render: milestones ----------
+function renderMilestones(){
+  const now=new Date();now.setHours(0,0,0,0);
+  const el=document.getElementById('milestones');
+  el.innerHTML=MILE.map(m=>{
+    const done=store['ms_'+m.id];
+    const active=now>=m.s&&now<=m.e;
+    return `<div class="ms ${done?'done':''}" data-id="${m.id}" style="cursor:pointer">
+      <div class="chk">${done?'✅':(active?'🔔':'⚪')}</div>
+      <div class="k">${m.k}</div><div class="v">${m.v}</div><div class="d">${m.d}</div></div>`;
+  }).join('');
+  el.querySelectorAll('.ms').forEach(n=>n.onclick=()=>{
+    const id=n.dataset.id;store['ms_'+id]=!store['ms_'+id];save(store);refreshAll();
+  });
+}
+
+// ---------- render: stats logged hours ----------
+function renderLogged(){
+  let mins=0,daysDone=new Set();
+  Object.keys(store).forEach(k=>{
+    if(k.startsWith('ok_')&&store[k]){const[,date]=k.split('_');const[,m]=k.split('|');
+      // ok_DATE|taskid -> minutes need task lookup; store minutes directly instead
+    }
+  });
+  // simpler: store logs as ok_DATE|taskid -> minutes
+  let total=0;Object.keys(store).forEach(k=>{if(k.startsWith('ok_'))total+=(store[k]||0)});
+  document.getElementById('s-log').textContent=(total/60).toFixed(1);
+  return total;
+}
+
+// ---------- render: today tasks ----------
+let curDate=clampPlan(new Date());
+function renderToday(){
+  const d=curDate;const p=phaseOf(d);
+  document.getElementById('todayDate').textContent=md(d)+' '+WD[d.getDay()];
+  const phEl=document.getElementById('todayPhase');
+  if(p){phEl.textContent=phaseName(p);phEl.className='ph'+(p==='intense'?' i':p==='sprint'?' s':'');phEl.style.display='';}
+  else{phEl.style.display='none';}
+  const tasks=genTasks(d);
+  const list=document.getElementById('taskList');
+  if(!tasks.length){list.innerHTML='<div class="note">该日期不在备考周期内。</div>';}
+  else{
+    list.innerHTML=tasks.map(t=>{
+      const key='ok_'+ymd(d)+'|'+t.id;const ok=store[key];
+      return `<div class="task ${ok?'ok':''}" data-key="${key}" data-min="${t.min}">
+        <div class="box">${ok?'✓':''}</div>
+        <div class="body">
+          <div class="tt"><span class="cat">${CATNAME[t.cat]}</span>${t.title}
+            <span class="mn">${t.min}min</span></div>
+          <div class="dt">${t.detail}</div>
+        </div></div>`;
+    }).join('');
+    list.querySelectorAll('.task').forEach(n=>n.onclick=()=>{
+      const key=n.dataset.key,min=+n.dataset.min;
+      if(store[key]){delete store[key];}else{store[key]=min;}
+      save(store);refreshAll();
+    });
+  }
+  // ring + minutes
+  const plan=genTasks(d).reduce((a,t)=>a+t.min,0);
+  const done=tasks.reduce((a,t)=>a+(store['ok_'+ymd(d)+'|'+t.id]||0),0);
+  const pct=plan?Math.round(done/plan*100):0;
+  document.getElementById('planMin').textContent=plan;
+  document.getElementById('doneMin').textContent=done;
+  document.getElementById('ringPct').textContent=pct+'%';
+  document.getElementById('ringFg').style.strokeDashoffset=251.3*(1-pct/100);
+  // streak
+  let stk=0;let x=new Date(d);
+  while(phaseOf(x)){
+    const ts=genTasks(x);const allDone=ts.length&&ts.every(t=>store['ok_'+ymd(x)+'|'+t.id]);
+    if(allDone){stk++;x=addDays(x,-1);}else break;
+  }
+  document.getElementById('streakTxt').textContent=stk>0?('🔥 连续完成 '+stk+' 天'):'';
+  // note
+  const note=document.getElementById('todayNote');
+  if(d<PLAN_START)note.textContent='📅 计划明日（10/5 周一）启动，今天可先整理资料、定好词汇书与教辅。';
+  else if(p==='base')note.textContent='基础阶段：重理解轻速度，把数学公式与逻辑规则吃透，单词每天不断线。';
+  else if(p==='intense')note.textContent='强化阶段：开始计时刷题、建错题本，写作要动笔，别只看不写。';
+  else if(p==='sprint')note.textContent='冲刺阶段：严格3h全真模考，固定时间分配，考前一周停笔养精。';
+}
+
+// ---------- render: week strip ----------
+function renderWeek(){
+  const now=new Date();now.setHours(0,0,0,0);
+  const mon=addDays(curDate,-(curDate.getDay()===0?6:curDate.getDay()-1));
+  const el=document.getElementById('weekStrip');
+  let html='';
+  for(let i=0;i<7;i++){
+    const d=addDays(mon,i);const p=phaseOf(d);const inRange=d>=PLAN_START&&d<=PLAN_END;
+    const ts=genTasks(d);const plan=ts.reduce((a,t)=>a+t.min,0);
+    const done=ts.reduce((a,t)=>a+(store['ok_'+ymd(d)+'|'+t.id]||0),0);
+    const pct=plan?Math.round(done/plan*100):0;
+    const sel=ymd(d)===ymd(curDate)?'sel':'';
+    const isToday=ymd(d)===ymd(now)?'today':'';
+    const past=d<now?'past':'';
+    html+=`<div class="wd ${sel} ${isToday} ${past}" data-d="${ymd(d)}" ${inRange?'':'style="opacity:.4;cursor:default"'}>
+      <div class="d">${md(d)}</div><div class="w">${WD[d.getDay()]}</div>
+      <div class="pct"><i style="width:${pct}%"></i></div></div>`;
+  }
+  el.innerHTML=html;
+  el.querySelectorAll('.wd').forEach(n=>n.onclick=()=>{
+    const [Y,M,D]=n.dataset.d.split('-').map(Number);const d=new Date(Y,M-1,D);
+    if(d<PLAN_START||d>PLAN_END)return;curDate=d;renderToday();renderWeek();
+  });
+}
+
+// ---------- reset ----------
+document.getElementById('resetBtn').onclick=()=>{
+  if(confirm('确定清空所有打卡记录？此操作不可恢复。')){
+    const keep={};Object.keys(store).forEach(k=>{if(k.startsWith('ms_'))keep[k]=store[k];});
+    store=keep;save(store);refreshAll();
+  }
+};
+
+// backup
+function exportJSON(){
+  const data={type:'neu_meng_study',exportedAt:new Date().toISOString(),data:store};
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download='考研备考打卡备份_'+ymd(new Date())+'.json';a.click();
+  URL.revokeObjectURL(a.href);
+}
+function importJSON(file){
+  const r=new FileReader();
+  r.onload=()=>{try{
+    const obj=JSON.parse(r.result);const src=obj.data||obj;
+    Object.keys(src).forEach(k=>{store[k]=src[k];});save(store);refreshAll();
+    alert('导入成功，已恢复数据');
+  }catch(e){alert('文件格式错误，导入失败');}};
+  r.readAsText(file);
+}
+document.getElementById('exportBtn').onclick=exportJSON;
+document.getElementById('importBtn').onclick=()=>document.getElementById('importFile').click();
+document.getElementById('importFile').onchange=e=>{if(e.target.files[0])importJSON(e.target.files[0]);e.target.value='';};
+document.getElementById('resetBtn2').onclick=()=>{
+  if(confirm('确定清空所有打卡记录？此操作不可恢复。')){
+    const keep={};Object.keys(store).forEach(k=>{if(k.startsWith('ms_'))keep[k]=store[k];});
+    store=keep;save(store);refreshAll();
+  }
+};
+
+// unified refresh + init
+function refreshAll(){renderMilestones();renderToday();renderWeek();renderLogged();}
+renderCountdown();refreshAll();
+</script>
+<script>
+/* PWA：注册离线缓存，使添加到主屏后可作独立 App 使用 */
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('sw.js').catch(function () {});
+  });
+}
+</script>
+</body>
+</html>
