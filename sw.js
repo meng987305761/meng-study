@@ -1,5 +1,5 @@
 /* 离线缓存 Service Worker —— 让工作台在无网络时也能打开 */
-const CACHE = 'meng-study-v1';
+const CACHE = 'meng-study-v2';
 const ASSETS = [
   './',
   './index.html',
